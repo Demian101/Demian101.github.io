@@ -23,3 +23,13 @@ after = ["links"]
 # To automatically reload the book when you change the po/xx.po file
 [build]
 extra-watch-dirs = ["po"]
+
+
+
+
+[output.html]
+additional-css = ["theme/css/mdbook-admonish.css", "theme/pagetoc.css", "theme/css/open-in.css"]
+additional-js  = ["theme/pagetoc.js", "theme/mermaid.min.js", "theme/mermaid-init.js"]
+git-repository-url = "https://github.com/r12f/sonic-book"
+git-branch = "main"
+open-on-text = "Found a bug? [Edit this page on GitHub.]"
