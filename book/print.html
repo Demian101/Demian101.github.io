@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
-<html lang="zh" class="sidebar-visible no-js light">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>promised land</title>
+        <title></title>
         <meta name="robots" content="noindex" />
 
 
         <!-- Custom HTML head -->
-        <meta property="og:title" content="print.md" />
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -30,9 +30,6 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/css/mdbook-admonish.css">
-        <link rel="stylesheet" href="theme/pagetoc.css">
-        <link rel="stylesheet" href="theme/css/open-in.css">
 
     </head>
     <body>
@@ -116,21 +113,55 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">promised land</h1>
+                    <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
-                        <button id="lang-toggle" class="icon-button" type="button" title="Change Language" aria-label="Change Language" aria-haspopup="true" aria-expanded="false" aria-controls="lang-list">
+                        <button id="language-toggle" class="icon-button" type="button"
+                                title="Change language" aria-label="Change language"
+                                aria-haspopup="true" aria-expanded="false"
+                                aria-controls="language-list">
                             <i class="fa fa-globe"></i>
                         </button>
-                        <ul id="lang-list" class="theme-popup" style="left: auto;" aria-label="Languages" role="menu">
-                            <li role="none"><button role="menuitem" class="theme"><a id="lang-cn">中文</a></button></li>
-                            <li role="none"><button role="menuitem" class="theme"><a id="lang-en">English</a></button></li>
+                        <ul id="language-list" class="theme-popup" aria-label="Languages" role="menu">
+                            <li role="none"><button role="menuitem" class="theme">
+                                <a id="en">English</a>
+                            </button></li>
+                            <li role="none"><button role="menuitem" class="theme">
+                                <a id="es">Español</a>
+                            </button></li>
+                            <li role="none"><button role="menuitem" class="theme">
+                                <a id="fr">Français</a>
+                            </button></li>
+                            <li role="none"><button role="menuitem" class="theme">
+                                <a id="zh-cn">简体中文</a>
+                            </button></li>
                         </ul>
+                        <script>
+                            let langToggle = document.getElementById("language-toggle");
+                            let langList = document.getElementById("language-list");
+                            langToggle.addEventListener("click", (event) => {
+                                langList.style.display = langList.style.display == "block" ? "none" : "block";
+                            });
+                            let selectedLang = document.getElementById("en");
+                            selectedLang.parentNode.classList.add("theme-selected");
+
+                            // The path to the root, taking the current
+                            // language into account.
+                            let full_path_to_root = "";
+                            // The page path (mdbook only gives us
+                            // access to the path to the Markdown file).
+                            let path = "print.md".replace(/\.md$/, ".html");
+                            for (let lang of langList.querySelectorAll("a")) {
+                                if (lang.id == "en") {
+                                    lang.href = `${full_path_to_root}${path}`;
+                                } else {
+                                    lang.href = `${full_path_to_root}${lang.id}/${path}`;
+                                }
+                            }
+                        </script>
+
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
-                        </a>
-                        <a href="https://github.com/r12f/sonic-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
                     </div>
@@ -158,15 +189,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
 <p>邱奇-图灵（Church-Turing）命题，或者邱奇-图灵论题，是一个关于可计算性的重要理论。它提出了一种概念，即“可计算函数”和“可有效计算”是等价的。换句话说，任何可以在现实世界中通过物理或数学方式完成的计算，都可以在图灵机上进行。</p>
 <p>这是一个非常强大的观点，因为它基本上是说，图灵机能够模拟任何我们能够想象到的计算过程。这包括所有的计算机程序，因为所有现代的计算机都可以视为图灵机的具体实现。</p>
 <p>a example, 假设你有一种棋类游戏的规则，你可以确定任何特定的游戏局面是胜利、失败还是平局。那么，邱奇-图灵命题告诉我们，存在一个图灵机（i.e. a program），它可以接受任何游戏局面作为输入，然后输出这个游戏局面是胜利、失败还是平局。</p>
 
-                        <hr>
-                        <div class="giscus"></div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -215,11 +242,9 @@
         <script src="clipboard.min.js"></script>
         <script src="highlight.js"></script>
         <script src="book.js"></script>
+        <script src="js/index.mjs"></script>
 
         <!-- Custom JS scripts -->
-        <script src="theme/pagetoc.js"></script>
-        <script src="theme/mermaid.min.js"></script>
-        <script src="theme/mermaid-init.js"></script>
 
         <script>
         window.addEventListener('load', function() {
@@ -228,98 +253,5 @@
         </script>
 
     </div>
-
-    <script type="text/javascript">
-        var langs = [
-            'cn',
-            'en',
-        ];
-
-        (function initLangs() {
-            var html = document.querySelector('html');
-            var langToggleButton = document.getElementById('lang-toggle');
-            var langPopup = document.getElementById('lang-list');
-
-            function showLangs() {
-                langPopup.style.display = 'block';
-                langToggleButton.setAttribute('aria-expanded', true);
-            }
-
-            function hideLangs() {
-                langPopup.style.display = 'none';
-                langToggleButton.setAttribute('aria-expanded', false);
-                langToggleButton.focus();
-            }
-
-            langToggleButton.addEventListener('click', function () {
-                if (langPopup.style.display === 'block') {
-                    hideLangs();
-                } else {
-                    showLangs();
-                }
-            });
-
-            langPopup.addEventListener('focusout', function(e) {
-                // e.relatedTarget is null in Safari and Firefox on macOS (see workaround below)
-                if (!!e.relatedTarget && !langToggleButton.contains(e.relatedTarget) && !langPopup.contains(e.relatedTarget)) {
-                    hideLangs();
-                }
-            });
-
-            // Should not be needed, but it works around an issue on macOS & iOS: https://github.com/rust-lang-nursery/mdBook/issues/628
-            document.addEventListener('click', function(e) {
-                if (langPopup.style.display === 'block' && !langToggleButton.contains(e.target) && !langPopup.contains(e.target)) {
-                    hideLangs();
-                }
-            });
-
-            // For each language, update the link to point to the current page in that language
-            let linkParts = window.location.pathname.split('/');
-            let langIndex = linkParts.findIndex((s) => langs.includes(s));
-            langs.forEach(function (lang) {
-                var link = document.getElementById('lang-' + lang);
-                if (!link) {
-                    return;
-                }
-
-                let newLinkParts = linkParts.slice();
-
-                // If it is Chinese, remove the current language from the path
-                if (lang === "cn") {
-                    if (langIndex !== -1) {
-                        newLinkParts.splice(langIndex, 1);
-                    }
-                }
-                
-                // Otherwise, add the new language to the path
-                else {
-                    if (langIndex === -1) {
-                        newLinkParts.splice(newLinkParts.length - 1, 0, lang);
-                    } else {
-                        newLinkParts[langIndex] = lang;
-                    }
-                }
-
-                link.href = newLinkParts.join('/');
-            });
-
-        })();
-        </script>
-        <script src="https://giscus.app/client.js"
-                data-repo="r12f/sonic-book"
-                data-repo-id="R_kgDOJhBB1g"
-                data-category="Comments"
-                data-category-id="DIC_kwDOJhBB1s4CXctO"
-                data-mapping="og:title"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="dark_dimmed"
-                data-lang="en"
-                data-loading="lazy"
-                crossorigin="anonymous"
-                async>
-        </script>
     </body>
 </html>

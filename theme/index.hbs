@@ -140,13 +140,54 @@
                     <h1 class="menu-title">{{ book_title }}</h1>
 
                     <div class="right-buttons">
-                        <button id="lang-toggle" class="icon-button" type="button" title="Change Language" aria-label="Change Language" aria-haspopup="true" aria-expanded="false" aria-controls="lang-list">
+                        <button id="language-toggle" class="icon-button" type="button"
+                                title="Change language" aria-label="Change language"
+                                aria-haspopup="true" aria-expanded="false"
+                                aria-controls="language-list">
                             <i class="fa fa-globe"></i>
                         </button>
-                        <ul id="lang-list" class="theme-popup" style="left: auto;" aria-label="Languages" role="menu">
-                            <li role="none"><button role="menuitem" class="theme"><a id="lang-cn">中文</a></button></li>
-                            <li role="none"><button role="menuitem" class="theme"><a id="lang-en">English</a></button></li>
+                        <ul id="language-list" class="theme-popup" aria-label="Languages" role="menu">
+                            <li role="none"><button role="menuitem" class="theme">
+                                <a id="en">English</a>
+                            </button></li>
+                            <li role="none"><button role="menuitem" class="theme">
+                                <a id="es">Español</a>
+                            </button></li>
+                            <li role="none"><button role="menuitem" class="theme">
+                                <a id="fr">Français</a>
+                            </button></li>
+                            <li role="none"><button role="menuitem" class="theme">
+                                <a id="zh-cn">简体中文</a>
+                            </button></li>
                         </ul>
+                        <script>
+                            let langToggle = document.getElementById("language-toggle");
+                            let langList = document.getElementById("language-list");
+                            langToggle.addEventListener("click", (event) => {
+                                langList.style.display = langList.style.display == "block" ? "none" : "block";
+                            });
+                            let selectedLang = document.getElementById("{{ language }}");
+                            selectedLang.parentNode.classList.add("theme-selected");
+
+                            // The path to the root, taking the current
+                            // language into account.
+                            {{#if (eq language "en")}}
+                            let full_path_to_root = "{{ path_to_root }}";
+                            {{else}}
+                            let full_path_to_root = "{{ path_to_root }}../";
+                            {{/if}}
+                            // The page path (mdbook only gives us
+                            // access to the path to the Markdown file).
+                            let path = "{{ path }}".replace(/\.md$/, ".html");
+                            for (let lang of langList.querySelectorAll("a")) {
+                                if (lang.id == "en") {
+                                    lang.href = `${full_path_to_root}${path}`;
+                                } else {
+                                    lang.href = `${full_path_to_root}${lang.id}/${path}`;
+                                }
+                            }
+                        </script>
+
                         {{#if print_enable}}
                         <a href="{{ path_to_root }}print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
@@ -190,10 +231,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
                         {{{ content }}}
-                        <hr>
-                        <div class="giscus"></div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -298,6 +336,7 @@
         <script src="{{ path_to_root }}clipboard.min.js"></script>
         <script src="{{ path_to_root }}highlight.js"></script>
         <script src="{{ path_to_root }}book.js"></script>
+        <script src="{{ path_to_root }}js/index.mjs"></script>
 
         <!-- Custom JS scripts -->
         {{#each additional_js}}
@@ -323,98 +362,5 @@
         {{/if}}
 
     </div>
-
-    <script type="text/javascript">
-        var langs = [
-            'cn',
-            'en',
-        ];
-
-        (function initLangs() {
-            var html = document.querySelector('html');
-            var langToggleButton = document.getElementById('lang-toggle');
-            var langPopup = document.getElementById('lang-list');
-
-            function showLangs() {
-                langPopup.style.display = 'block';
-                langToggleButton.setAttribute('aria-expanded', true);
-            }
-
-            function hideLangs() {
-                langPopup.style.display = 'none';
-                langToggleButton.setAttribute('aria-expanded', false);
-                langToggleButton.focus();
-            }
-
-            langToggleButton.addEventListener('click', function () {
-                if (langPopup.style.display === 'block') {
-                    hideLangs();
-                } else {
-                    showLangs();
-                }
-            });
-
-            langPopup.addEventListener('focusout', function(e) {
-                // e.relatedTarget is null in Safari and Firefox on macOS (see workaround below)
-                if (!!e.relatedTarget && !langToggleButton.contains(e.relatedTarget) && !langPopup.contains(e.relatedTarget)) {
-                    hideLangs();
-                }
-            });
-
-            // Should not be needed, but it works around an issue on macOS & iOS: https://github.com/rust-lang-nursery/mdBook/issues/628
-            document.addEventListener('click', function(e) {
-                if (langPopup.style.display === 'block' && !langToggleButton.contains(e.target) && !langPopup.contains(e.target)) {
-                    hideLangs();
-                }
-            });
-
-            // For each language, update the link to point to the current page in that language
-            let linkParts = window.location.pathname.split('/');
-            let langIndex = linkParts.findIndex((s) => langs.includes(s));
-            langs.forEach(function (lang) {
-                var link = document.getElementById('lang-' + lang);
-                if (!link) {
-                    return;
-                }
-
-                let newLinkParts = linkParts.slice();
-
-                // If it is Chinese, remove the current language from the path
-                if (lang === "cn") {
-                    if (langIndex !== -1) {
-                        newLinkParts.splice(langIndex, 1);
-                    }
-                }
-                
-                // Otherwise, add the new language to the path
-                else {
-                    if (langIndex === -1) {
-                        newLinkParts.splice(newLinkParts.length - 1, 0, lang);
-                    } else {
-                        newLinkParts[langIndex] = lang;
-                    }
-                }
-
-                link.href = newLinkParts.join('/');
-            });
-
-        })();
-        </script>
-        <script src="https://giscus.app/client.js"
-                data-repo="r12f/sonic-book"
-                data-repo-id="R_kgDOJhBB1g"
-                data-category="Comments"
-                data-category-id="DIC_kwDOJhBB1s4CXctO"
-                data-mapping="og:title"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="dark_dimmed"
-                data-lang="en"
-                data-loading="lazy"
-                crossorigin="anonymous"
-                async>
-        </script>
     </body>
 </html>
