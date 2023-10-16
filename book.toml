@@ -30,6 +30,7 @@ extra-watch-dirs = ["po"]
 [output.html]
 additional-css = ["theme/css/mdbook-admonish.css", "theme/pagetoc.css", "theme/css/open-in.css"]
 additional-js  = ["theme/pagetoc.js", "theme/mermaid.min.js", "theme/mermaid-init.js"]
-git-repository-url = "https://github.com/r12f/sonic-book"
+git-repository-url = "https://github.com/zkp-co-learning/zkp-co-learning.github.io"
+edit-url-template = "https://github.com/zkp-co-learning/zkp-co-learning.github.io/edit/main/{path}"
 git-branch = "main"
 open-on-text = "Found a bug? [Edit this page on GitHub.]"
