@@ -79,7 +79,6 @@ jobs:
         uses: actions/deploy-pages@v2
 
   publish:
-  publish:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
