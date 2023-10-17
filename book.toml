@@ -1,14 +1,31 @@
 [book]
-authors = ["r12f"]
+authors = ["zkp-co-learning contributors"]
 language = "cn"
 multilingual = false
 src = "src"
-title = "SONiC入门指南"
+title = "World of Z2O-K7E"
+description = "零知世界"
+
+# [preprocessor.translation] now we have md-booki18n
+
 
 [build]
 extra-watch-dirs = ["po"]
 
-[preprocessor]
+[preprocessor.katex]
+after = ["links"]
+macros = "macros.txt" # ref from https://github.com/Trapdoor-Tech/Halo2-Book/blob/master/book/macros.txt
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
+marker = "[TOC]"
+max-level = 4
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.0.0" # do not edit: managed by `mdbook-admonish install`
+after = ["gettext"]
 
 [preprocessor.pagetoc]
 
@@ -19,18 +36,33 @@ renderer = ["html"]
 [preprocessor.gettext]
 after = ["links"]
 
-[preprocessor.admonish]
-command = "mdbook-admonish"
-assets_version = "3.0.0" # do not edit: managed by `mdbook-admonish install`
-after = ["gettext"]
-
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
 
+
+
+
+
+
 [output.html]
-additional-css = ["theme/css/mdbook-admonish.css", "theme/pagetoc.css", "theme/css/open-in.css", "./mdbook-admonish.css"]
+mathjax-support = true
+no-section-label = true
+theme = "theme"
+additional-css = ["./mdbook-admonish.css"]
+# additional-css = ["theme/css/mdbook-admonish.css", "theme/pagetoc.css", "theme/css/open-in.css", "./mdbook-admonish.css"]
 additional-js  = ["theme/pagetoc.js", "theme/mermaid.min.js", "theme/mermaid-init.js"]
-git-repository-url = "https://github.com/r12f/sonic-book"
+
+curly-quotes = true # 10-17 added
+# additional-css = ["language-picker.css"]
+git-repository-url = "https://github.com/zkp-co-learning/zkp-co-learning.github.io"
 git-branch = "main"
-open-on-text = "Found a bug? [Edit this page on GitHub.]"
-google-analytics = "G-PNR40ZKD06"
+#open-on-text = "Found a bug?! [Edit this page on GitHub.]"
+edit-url-template = "https://github.com/zkp-co-learning/zkp-co-learning.github.io/edit/main/{path}"
+
+
+[output.html.fold]
+enable = true   # whether or not to enable section folding
+level = 0        # the depth to start folding
+
+[output.html.search]
+enable = true

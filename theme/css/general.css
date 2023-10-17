@@ -4,11 +4,12 @@
 
 :root {
     /* Browser default font-size is 16px, this way 1 rem = 10px */
-    font-size: 62.5%;
+    font-size: 70%;
+    color-scheme: var(--color-scheme);
 }
 
 html {
-    font-family: "Open Sans", sans-serif;
+    font-family: "LXGW Wenkai", sans-serif;
     color: var(--fg);
     background-color: var(--bg);
     text-size-adjust: none;
@@ -47,9 +48,8 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
 .hide-boring .boring { display: none; }
 .hidden { display: none !important; }
 
-h2, h3 { margin-top: 1.5em; }
-h4, h5 { margin-top: 1.5em; }
-
+h2, h3 { margin-top: 2.5em; }
+h4, h5 { margin-top: 2em; }
 
 .header + .header h3,
 .header + .header h4,
@@ -101,10 +101,9 @@ h6:target::before {
 .content p { line-height: 1.45em; }
 .content ol { line-height: 1.45em; }
 .content ul { line-height: 1.45em; }
-.content li { margin: 0.5em 0 0 0; }
 .content a { text-decoration: none; }
 .content a:hover { text-decoration: underline; }
-.content img, .content video { max-width: 100%; display: block; text-align: center; margin: auto; }
+.content img, .content video { max-width: 100%; }
 .content .header:link,
 .content .header:visited {
     color: var(--fg);
@@ -119,7 +118,7 @@ table {
     border-collapse: collapse;
 }
 table td {
-    padding: 8px 20px;
+    padding: 3px 20px;
     border: 1px var(--table-border-color) solid;
 }
 table thead {
@@ -202,17 +201,4 @@ kbd {
 
 .result-no-output {
     font-style: italic;
-}
-
-hr {
-    background-image: repeating-linear-gradient(-45deg, #ddd, #ddd 4px, transparent 4px, transparent 8px);
-    border: 0;
-    height: 3px;
-    margin: 40px 0;
-}
-
-.mermaid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
