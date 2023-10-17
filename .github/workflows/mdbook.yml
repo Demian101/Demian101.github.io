@@ -60,21 +60,6 @@ jobs:
           path: ./book
 
 
-      # Build
-      - name: Build with mdBook
-        run: just build
-
-      # Upload artifact for Github pages
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./book
-
-
   publish:
     needs: deploy
     environment:
