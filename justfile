@@ -22,12 +22,12 @@ init:
     cargo install mdbook-open-on-gh
 
 init-builder:
-    @just install-gh-bin https://github.com/rust-lang/mdBook/releases/download/v0.4.32/mdbook-v0.4.32-x86_64-unknown-linux-gnu.tar.gz mdbook
+    @just install-gh-bin https://github.com/rust-lang/mdBook/releases/download/v0.4.35/mdbook-v0.4.35-x86_64-unknown-linux-gnu.tar.gz mdbook
     cargo install mdbook-i18n-helpers
-    @just install-gh-bin https://github.com/tommilligan/mdbook-admonish/releases/download/v1.10.1/mdbook-admonish-v1.10.1-x86_64-unknown-linux-gnu.tar.gz mdbook-admonish
+    @just install-gh-bin https://github.com/tommilligan/mdbook-admonish/releases/download/v1.13.0/mdbook-admonish-v1.13.0-x86_64-unknown-linux-gnu.tar.gz mdbook-admonish
     @just install-gh-bin https://github.com/slowsage/mdbook-pagetoc/releases/download/v0.1.7/mdbook-pagetoc-v0.1.7-x86_64-unknown-linux-gnu.tar.gz mdbook-pagetoc
     @just install-gh-bin https://github.com/badboy/mdbook-mermaid/releases/download/v0.12.6/mdbook-mermaid-v0.12.6-x86_64-unknown-linux-gnu.tar.gz mdbook-mermaid
-    @just install-gh-bin https://github.com/badboy/mdbook-open-on-gh/releases/download/2.3.3/mdbook-open-on-gh-2.3.3-x86_64-unknown-linux-gnu.tar.gz mdbook-open-on-gh
+    @just install-gh-bin https://github.com/badboy/mdbook-open-on-gh/releases/download/2.4.1/mdbook-open-on-gh-2.4.1-x86_64-unknown-linux-gnu.tar.gz mdbook-open-on-gh
 
 install-gh-bin GITHUB_PATH BIN_NAME:
     @just _log-head "Installing {{BIN_NAME}} from {{GITHUB_PATH}} ..."
