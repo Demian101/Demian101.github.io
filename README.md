@@ -1,100 +1,47 @@
-# Comprehensive Rust 🦀
+# Getting Started with SONiC
 
-[![Build workflow](https://img.shields.io/github/actions/workflow/status/google/comprehensive-rust/build.yml?style=flat-square)](https://github.com/google/comprehensive-rust/actions/workflows/build.yml?query=branch%3Amain)
-[![GitHub contributors](https://img.shields.io/github/contributors/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/google/comprehensive-rust?style=flat-square)](https://github.com/google/comprehensive-rust/stargazers)
+![Build Pipeline](https://img.shields.io/github/actions/workflow/status/r12f/sonic-book/mdbook.yml)
 
-This repository has the source code for Comprehensive Rust 🦀, a multi-day Rust
-course developed by the Android team. The course covers all aspects of Rust,
-from basic syntax to generics and error handling. It also includes deep dives on
-[Android], [bare-metal], and [concurrency].
+Version: [Chinese](https://r12f.com/sonic-book) | [English (Machine Translated, WIP)](https://r12f.com/sonic-book/en/)
 
-[Android]: https://google.github.io/comprehensive-rust/android.html
-[bare-metal]: https://google.github.io/comprehensive-rust/bare-metal.html
-[concurrency]: https://google.github.io/comprehensive-rust/concurrency.html
+> What is SONiC?
+> 
+> Software for Open Networking in the Cloud (SONiC) is an open source network operating system (NOS) based on Linux that runs on switches from multiple vendors and ASICs. SONiC offers a full suite of network functionality, like BGP and RDMA, that has been production-hardened in the data centers of some of the largest cloud service providers. It offers teams the flexibility to create the network solutions they need while leveraging the collective strength of a large ecosystem and community.
+> 
+> -- from [SONiC Foundation](https://sonicfoundation.dev/)
 
-Read the course at **https://google.github.io/comprehensive-rust/**.
+You might be interested in SONiC because it is powerful enough to suite your need, or maybe it looks pratical and promising enough due to the usage of Azure, or maybe its architecture is flexiable enough to allows you easily extend and satify your needs. However, you might found yourself lost in the ocean of documents and code - either because the documents being too high level and not hands-on enough or being too deep on each specific feature such as all the High Level Design docs. And now wondering how and where to actually start.
 
-## Course Format and Target Audience
+If you are in this situation, then this book is for you.
 
-The course is used internally at Google when teaching Rust to experienced
-software engineers. They typically have a background in C++ or Java.
+"Getting Started with SONiC" / "SONiC入门指南" is a book that intended to help people actually getting started on [SONiC](https://sonicfoundation.dev/). It contains a series of tutorials that will guide you through the process of building a SONiC image, deploying it on a switch or virtually, and using it to do some basic network operations to get hands on, as well as introducing the high level architecture, code base, and typical workflows to help you understand how it works internally and get started on development.
 
-The course is taught in a classroom setting and we hope it will be useful for
-others who want to teach Rust to their team. The course will be less useful for
-self-study since you miss out on the discussions happening in the classroom. You
-don't see the questions and answers and you don't see the compiler errors we
-trigger when going through the code samples. We hope to improve on this via
-[speaker notes](https://github.com/google/comprehensive-rust/issues/53) and by
-[publishing videos](https://github.com/google/comprehensive-rust/issues/52).
+The book is currently in [Chinese（中文）](https://r12f.com/sonic-book) and English version is still working in progress. If you like this books, please give it a star, or join the effort of authoring, bug fixing or translations by submitting PRs.
 
-## Press
+## How to build
 
-Articles and blog posts from around the web which cover Comprehensive Rust:
+### Prerequisites
 
-- 2023-09-08:
-  _[Teaching Rust in 5 days](https://mo8it.com/blog/teaching-rust/)_.
-  Comprehensive Rust was used as a base for a 5-day university class on Rust.
-- 2023-09-21:
-  _[Scaling Rust Adoption Through Training](https://security.googleblog.com/2023/09/scaling-rust-adoption-through-training.html)_.
-  We published a blog post with details on the development of the course.
-- 2023-10-02:
-  _[In Search of Rust Developers, Companies Turn to In-House Training](https://www.darkreading.com/application-security/google-microsoft-take-refuge-in-rust-languages-better-security)_.
-  About how Microsoft, Google, and others are training people in Rust.
+1. Install `just` by following the [installation guide](https://github.com/casey/just#installation). We use `just` instead of `make`, because it is easier to manage and use.
+2. Install powershell by following the [installation guide](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3). This is because we use powershell as our make file script engine, so we can run our book on any platform. 
+3. Run `just init` for installing mdbook and related pluins. This is one time initialization.
 
-## Building
+### Build
 
-The course is built using a few tools:
+Simply run `just build` to build the book. The output will be in `book` folder.
 
-- [mdbook](https://github.com/rust-lang/mdBook)
-- [mdbook-svgbob](https://github.com/boozook/mdbook-svgbob)
-- [mdbook-i18n-helpers](https://github.com/google/mdbook-i18n-helpers)
-- [mdbook-exerciser](mdbook-exerciser/)
-- [mdbook-course](mdbook-course/)
+### Serve
 
-First clone the repository:
+Run `just serve` to serve the book locally. You can then visit `http://localhost:3000` to view the book.
 
-```shell
-git clone https://github.com/google/comprehensive-rust/
-cd comprehensive-rust
-```
+If we need to serve the book with specific translation, we can run `just po-serve <lang>`. For example, `just po-serve en` will serve the book in English.
 
-Then install these tools with:
+## Acknowledgement
 
-```shell
-cargo install mdbook
-cargo install mdbook-svgbob
-cargo install mdbook-i18n-helpers
-cargo install --path mdbook-exerciser
-cargo install --path mdbook-course
-```
+Huge thanks to the following friends for their help and contribution, without you there would be no this book!
 
-Run
+[@bingwang-ms](https://github.com/bingwang-ms)
 
-```shell
-mdbook test
-```
+## License
 
-to test all included Rust snippets. Run
-
-```shell
-mdbook serve
-```
-
-to start a web server with the course. You'll find the content on
-<http://localhost:3000>. You can use `mdbook build` to create a static version
-of the course in the `book/` directory. Note that you have to separately build
-and zip exercises and add them to `book/html`. To build any of the translated
-versions of the course, run `MDBOOK_BOOK__LANGUAGE=xx mdbook build -d book/xx`
-where `xx` is the ISO 639 language code (e.g. `da` for the Danish translation).
-[TRANSLATIONS.md](TRANSLATIONS.md) contains further instructions.
-
-> **Note** On Windows, you need to enable symlinks
-> (`git config --global core.symlinks true`) and Developer Mode.
-
-## Contact
-
-For questions or comments, please contact
-[Martin Geisler](mailto:mgeisler@google.com) or start a
-[discussion on GitHub](https://github.com/google/comprehensive-rust/discussions).
-We would love to hear from you.
+This book is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
