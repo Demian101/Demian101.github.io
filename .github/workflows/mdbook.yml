@@ -38,41 +38,7 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      # Init build environment
-      - name: Install just
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | sudo bash -s -- --to /bin
-      - name: Install cargo
-        run: |
-          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
-          rustup update
-      - name: Init build environment
-        run: just init-builder
-
-      # Build
-      - name: Build with mdBook
-        run: just build
-
-      # Upload artifact for Github pages
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./book
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
+    # Init build environment
     steps:
       - uses: actions/checkout@v3
       - name: Install mdBook
@@ -92,6 +58,22 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./book
+
+
+      # Build
+      - name: Build with mdBook
+        run: just build
+
+      # Upload artifact for Github pages
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./book
+
 
   publish:
     needs: deploy
