@@ -2,11 +2,13 @@
 
 <span style="color: grey;">**Welcome to the**</span>
 
-![](./src/logo.png)
+![](logo.png)
 
 
 
 <span style="color: grey;">**World!**</span>
+
+<!-- 这边 logo 的寻址地点是 .src , 所以本地 MD 渲染不会显示，mkbook serve --open 能看到就好了-->
 
 
 
