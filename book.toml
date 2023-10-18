@@ -6,6 +6,10 @@ src = "src"
 title = "World of Z2O-K7E"
 description = "零知世界"
 
+[build]
+extra-watch-dirs = ["po"]
+
+
 # [preprocessor.translation] // now we have md-booki18n
 # [preprocessor.pagetoc]     // poor adaptability
 
@@ -36,10 +40,6 @@ after = ["links"]
 command = "mdbook-mermaid"
 
 
-[build]
-extra-watch-dirs = ["po"]
-
-
 [output.html]
 mathjax-support = true
 no-section-label = true
@@ -49,8 +49,7 @@ additional-css = ["./mdbook-admonish.css", "theme/css/mdbook-admonish.css", "the
 git-repository-url = "https://github.com/zkp-co-learning/zkp-co-learning.github.io"
 open-on-text = "Found a bug?! [Edit this page on GitHub.]"
 edit-url-template = "https://github.com/zkp-co-learning/zkp-co-learning.github.io/edit/main/{path}"
-curly-quotes = true   # replaces straight quotes with curly quotes,
-# additional-css = ["language-picker.css"]
+curly-quotes = true   # replaces straight quotes with curly quotes
 
 
 [output.html.fold]

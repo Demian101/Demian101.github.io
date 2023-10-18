@@ -2,7 +2,7 @@
 #
 # To get started with mdBook see: https://rust-lang.github.io/mdBook/index.html
 #
-name: Deploy sonic-book to Pages
+name: Deploy z2o-k7e to Pages
 
 on:
   # Runs on pushes targeting the default branch
