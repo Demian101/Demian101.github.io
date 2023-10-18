@@ -389,7 +389,8 @@
                 // Otherwise, add the new language to the path
                 else {
                     if (langIndex === -1) {
-                        newLinkParts.splice(newLinkParts.length - 1, 0, lang);
+                        // Modify this line to insert the language right after the domain
+                        newLinkParts.splice(1, 0, lang);
                     } else {
                         newLinkParts[langIndex] = lang;
                     }
@@ -397,8 +398,8 @@
 
                 link.href = newLinkParts.join('/');
             });
-
         })();
+
         </script>
         <script src="https://giscus.app/client.js"
                 data-repo="r12f/sonic-book"
