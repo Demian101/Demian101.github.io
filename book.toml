@@ -6,12 +6,13 @@ src = "src"
 title = "World of Z2O-K7E"
 description = "零知世界"
 
-# [preprocessor.translation] now we have md-booki18n
+# [preprocessor.translation] // now we have md-booki18n
+# [preprocessor.pagetoc]     // poor adaptability
 
 
 [preprocessor.katex]
 after = ["links"]
-macros = "macros.txt" # ref from https://github.com/Trapdoor-Tech/Halo2-Book/blob/master/book/macros.txt
+macros = "macros.txt"   # ref from https://github.com/Trapdoor-Tech/Halo2-Book/blob/master/book/macros.txt
 
 [preprocessor.toc]
 command = "mdbook-toc"
@@ -35,23 +36,21 @@ after = ["links"]
 command = "mdbook-mermaid"
 
 
-[preprocessor.pagetoc]
-
-
 [build]
 extra-watch-dirs = ["po"]
+
 
 [output.html]
 mathjax-support = true
 no-section-label = true
 theme = "theme"
-additional-js  = ["theme/pagetoc.js", "theme/mermaid.min.js", "theme/mermaid-init.js"]
-additional-css = ["./mdbook-admonish.css", "theme/pagetoc.css", "theme/css/mdbook-admonish.css", "theme/css/open-in.css"]
-curly-quotes = true # 10-17 added
-# additional-css = ["language-picker.css"]
+additional-js  = ["theme/mermaid.min.js", "theme/mermaid-init.js"]
+additional-css = ["./mdbook-admonish.css", "theme/css/mdbook-admonish.css", "theme/css/open-in.css"]
 git-repository-url = "https://github.com/zkp-co-learning/zkp-co-learning.github.io"
 open-on-text = "Found a bug?! [Edit this page on GitHub.]"
 edit-url-template = "https://github.com/zkp-co-learning/zkp-co-learning.github.io/edit/main/{path}"
+curly-quotes = true   # replaces straight quotes with curly quotes,
+# additional-css = ["language-picker.css"]
 
 
 [output.html.fold]
