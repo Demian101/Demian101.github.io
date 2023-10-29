@@ -12,7 +12,7 @@ extra-watch-dirs = ["po"]
 
 [preprocessor.katex]
 after = ["links"]
-# before = ["gettext"] 
+before = ["gettext"]
 macros = "macros.txt"   # ref from https://github.com/Trapdoor-Tech/Halo2-Book/blob/master/book/macros.txt
 
 
