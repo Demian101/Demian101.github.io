@@ -1,1 +1,0 @@
-##### Applications with halo2.

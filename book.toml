@@ -10,14 +10,11 @@ description = "零知世界"
 extra-watch-dirs = ["po"]
 
 
-# [preprocessor.translation] // now we have md-booki18n
-# [preprocessor.pagetoc]     // poor adaptability
-
-[preprocessor]
-
 [preprocessor.katex]
 after = ["links"]
+# before = ["gettext"] 
 macros = "macros.txt"   # ref from https://github.com/Trapdoor-Tech/Halo2-Book/blob/master/book/macros.txt
+
 
 [preprocessor.toc]
 command = "mdbook-toc"
@@ -28,7 +25,7 @@ max-level = 4
 [preprocessor.admonish]
 command = "mdbook-admonish"
 assets_version = "3.0.0" # do not edit: managed by `mdbook-admonish install`
-after = ["gettext"]
+#after = ["gettext"]
 
 [preprocessor.open-on-gh]
 command = "mdbook-open-on-gh"
