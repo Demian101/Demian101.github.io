@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: World of Z2O-K7E\n"
-"POT-Creation-Date: 2023-10-30T00:08:39+08:00\n"
+"POT-Creation-Date: 2023-10-30T00:17:29+08:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -22,25 +22,25 @@ msgstr ""
 
 #: src/plonk-arithmetization.md:3
 #: src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:11
-#: src/plonk-arithmetization.md:15
-#: src/plonk-arithmetization.md:19
+#: src/plonk-arithmetization.md:10
+#: src/plonk-arithmetization.md:14
+#: src/plonk-arithmetization.md:18
 msgid "1"
 msgstr ""
 
 #: src/plonk-arithmetization.md:3
 #: src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:11
-#: src/plonk-arithmetization.md:15
-#: src/plonk-arithmetization.md:19
+#: src/plonk-arithmetization.md:10
+#: src/plonk-arithmetization.md:14
+#: src/plonk-arithmetization.md:18
 msgid "+"
 msgstr ""
 
 #: src/plonk-arithmetization.md:3
 #: src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:11
-#: src/plonk-arithmetization.md:15
-#: src/plonk-arithmetization.md:19
+#: src/plonk-arithmetization.md:10
+#: src/plonk-arithmetization.md:14
+#: src/plonk-arithmetization.md:18
 msgid "c"
 msgstr ""
 
@@ -48,26 +48,12 @@ msgstr ""
 msgid " 这种公式："
 msgstr ""
 
-#: src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:11
-#: src/plonk-arithmetization.md:15
-#: src/plonk-arithmetization.md:19
-msgid ""
+
+#: src/plonk-arithmetization.md:12
+msgid "这是"
 msgstr ""
 
-#: src/plonk-arithmetization.md:9
-msgid "123"
-msgstr ""
-
-#: src/plonk-arithmetization.md:11
-msgid "​"
-msgstr ""
-
-#: src/plonk-arithmetization.md:13
-msgid "abc"
-msgstr ""
-
-#: src/plonk-arithmetization.md:17
-msgid "def "
+#: src/plonk-arithmetization.md:16
+msgid "一个奇迹 "
 msgstr ""
 
