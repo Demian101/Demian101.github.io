@@ -9,11 +9,12 @@ description = "零知世界"
 [build]
 extra-watch-dirs = ["po"]
 
+[preprocessor.gettext]
+after = ["links"]
 
 [preprocessor.katex]
-after = ["links"]
-before = ["gettext"]
-macros = "macros.txt"   # ref from https://github.com/Trapdoor-Tech/Halo2-Book/blob/master/book/macros.txt
+renderers = ["html"]
+macros = "macros.txt"
 
 
 [preprocessor.toc]
@@ -22,23 +23,17 @@ renderer = ["html"]
 marker = "[TOC]"
 max-level = 4
 
-[preprocessor.admonish]
-command = "mdbook-admonish"
-assets_version = "3.0.0" # do not edit: managed by `mdbook-admonish install`
-#after = ["gettext"]
 
 [preprocessor.open-on-gh]
 command = "mdbook-open-on-gh"
 renderer = ["html"]
 
-[preprocessor.gettext]
-after = ["links"]
+
 
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
 
 
-[output.html]
 mathjax-support = true
 no-section-label = true
 theme = "theme"
@@ -48,7 +43,6 @@ git-repository-url = "https://github.com/zkp-co-learning/zkp-co-learning.github.
 open-on-text = "Found a bug?! [Edit this page on GitHub.]"
 edit-url-template = "https://github.com/zkp-co-learning/zkp-co-learning.github.io/edit/main/{path}"
 curly-quotes = true   # replaces straight quotes with curly quotes
-
 
 [output.html.fold]
 enable = true   # whether or not to enable section folding

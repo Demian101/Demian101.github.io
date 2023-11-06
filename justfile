@@ -51,7 +51,7 @@ serve:
 
 po-extract:
     @just _log-head "Extracting messages.pot file from source  ..."
-    $env:MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}' \ mdbook build -d po; $env:MDBOOK_OUTPUT=$null
+    $env:MDBOOK_OUTPUT='{"xgettext": {"pot-file": "messages.pot"}}'; mdbook build -d po; $env:MDBOOK_OUTPUT=$null
 
 po-update PO='en':
     @just _log-head "Updating po files for language {{PO}} ..."

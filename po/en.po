@@ -1,50 +1,35 @@
+
 msgid ""
 msgstr ""
-"Project-Id-Version: World of Z2O-K7E\n"
-"POT-Creation-Date: 2023-10-30T00:17:29+08:00\n"
+"Project-Id-Version: SONiC入门指南\n"
+"POT-Creation-Date: 2023-10-23T23:38:37+08:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
-"Language-Team: English\n"
+"Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/SUMMARY.md:4
-msgid "Test"
-msgstr ""
-
-#: src/plonk-arithmetization.md:3
-msgid "我们知道，我们想翻译下面的 "
-msgstr "we know"
-
-#: src/plonk-arithmetization.md:3 src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:10 src/plonk-arithmetization.md:14
-#: src/plonk-arithmetization.md:18
+#: src/SUMMARY.md:5
 msgid "1"
 msgstr ""
 
-#: src/plonk-arithmetization.md:3 src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:10 src/plonk-arithmetization.md:14
-#: src/plonk-arithmetization.md:18
-msgid "+"
+
+#: src/plonk-arithmetization.md:4
+msgid ""
+"算术化是指把计算转换成数学对象，然后进行零知识证明。 Plonkish 算术化是 Plonk 证明系统特有的算术化方法，在 Plonkish "
+"出现之前，主流的电路表达形式为 R1CS，被 Pinocchio，Groth16，Bulletproofs 等广泛采用。2019 年 Plonk "
+"方案提出了一种看似复古的电路编码方式，但由于 Plonk "
+"方案将多项式的编码应用到了极致，它不再局限于算术电路中的「加法门」和「乘法门」，而是可以支持更灵活的「自定义门」与「查表门」。"
+msgstr "aRITHMETIC IS ........"
+
+#: src/plonk-arithmetization.md:22
+msgid ""
+"电路中有4个变量，其中三个变量为输入变量 $(x_1, x_2, x_3)$ ，一个输出变量 "
+"$out$，其中还有一个输入为常数，其值为 $2$。"
 msgstr ""
-
-#: src/plonk-arithmetization.md:3 src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:10 src/plonk-arithmetization.md:14
-#: src/plonk-arithmetization.md:18
-msgid "c"
-msgstr ""
-
-#: src/plonk-arithmetization.md:3
-msgid " 这种公式："
-msgstr "this formula"
-
-#: src/plonk-arithmetization.md:12
-msgid "这是"
-msgstr "this "
-
-#: src/plonk-arithmetization.md:16
-msgid "一个奇迹 "
-msgstr "a mysterious"
+"There are 4 variables in the circuit, with three variables being input "
+"variables $(x_1, x_2, x_3)$, one output variable $out$, and one constant "
+"input with a value of $2$."

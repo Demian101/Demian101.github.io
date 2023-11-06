@@ -1,8 +1,8 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version: World of Z2O-K7E\n"
-"POT-Creation-Date: 2023-10-30T00:17:29+08:00\n"
+"Project-Id-Version: SONiC入门指南\n"
+"POT-Creation-Date: 2023-10-23T23:38:37+08:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,48 +12,6 @@ msgstr ""
 "Language: cn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/SUMMARY.md:4
-msgid "Test"
-msgstr ""
-
-#: src/plonk-arithmetization.md:3
-msgid "我们知道，我们想翻译下面的 "
-msgstr ""
-
-#: src/plonk-arithmetization.md:3
-#: src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:10
-#: src/plonk-arithmetization.md:14
-#: src/plonk-arithmetization.md:18
+#: src/SUMMARY.md:5
 msgid "1"
 msgstr ""
-
-#: src/plonk-arithmetization.md:3
-#: src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:10
-#: src/plonk-arithmetization.md:14
-#: src/plonk-arithmetization.md:18
-msgid "+"
-msgstr ""
-
-#: src/plonk-arithmetization.md:3
-#: src/plonk-arithmetization.md:7
-#: src/plonk-arithmetization.md:10
-#: src/plonk-arithmetization.md:14
-#: src/plonk-arithmetization.md:18
-msgid "c"
-msgstr ""
-
-#: src/plonk-arithmetization.md:3
-msgid " 这种公式："
-msgstr ""
-
-
-#: src/plonk-arithmetization.md:12
-msgid "这是"
-msgstr ""
-
-#: src/plonk-arithmetization.md:16
-msgid "一个奇迹 "
-msgstr ""
-
