@@ -33,3 +33,9 @@ msgstr ""
 "There are 4 variables in the circuit, with three variables being input "
 "variables $(x_1, x_2, x_3)$, one output variable $out$, and one constant "
 "input with a value of $2$."
+
+#: src/plonk-arithmetization.md:22
+msgid ""
+"电路中有4个变量，其中三个变量为输入变量"
+msgstr ""
+"There are 4 variables in the circuit"
