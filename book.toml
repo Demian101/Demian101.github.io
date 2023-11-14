@@ -9,16 +9,15 @@ description = "零知世界"
 [build]
 extra-watch-dirs = ["po"]
 
-
-[preprocessor.gettext]
-before = ["katex"]  # if this, the begin formula cant be rendered.
-                    # if commented, the formula-inlined text cant be rendered.
-after = ["links"]
-
-
+# standard order: first katex. then 'gettext' 
 [preprocessor.katex]
 # after = ["gettext"] # the same as above before = ["katex"]
-output = "html"
+output = ["html"]
+no-css = true
+
+
+[preprocessor.gettext]
+after = ["links"]
 
 
 
@@ -37,7 +36,6 @@ renderer = ["html"]
 
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
-
 
 [output.html]
 mathjax-support = true
