@@ -11,13 +11,13 @@ extra-watch-dirs = ["po"]
 
 
 [preprocessor.gettext]
-# before = ["katex"]  # if this, the begin formula cant be rendered.
-                      # if commented, the formula-inlined text cant be rendered.
+before = ["katex"]  # if this, the begin formula cant be rendered.
+                    # if commented, the formula-inlined text cant be rendered.
 after = ["links"]
 
 
 [preprocessor.katex]
-after = ["gettext"] # the same as above before = ["katex"]
+# after = ["gettext"] # the same as above before = ["katex"]
 output = "html"
 
 
@@ -39,6 +39,7 @@ renderer = ["html"]
 command = "mdbook-mermaid"
 
 
+[output.html]
 mathjax-support = true
 no-section-label = true
 theme = "theme"
