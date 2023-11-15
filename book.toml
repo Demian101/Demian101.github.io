@@ -11,8 +11,9 @@ extra-watch-dirs = ["po"]
 
 # standard order: first katex. then 'gettext' 
 [preprocessor.katex]
-# after = ["gettext"] # the same as above before = ["katex"]
 no-css = true
+
+# after = ["gettext"] # the same as above before = ["katex"]
 # output = ["html"]
 
 
