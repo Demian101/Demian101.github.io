@@ -12,8 +12,8 @@ extra-watch-dirs = ["po"]
 # standard order: first katex. then 'gettext' 
 [preprocessor.katex]
 # after = ["gettext"] # the same as above before = ["katex"]
-output = ["html"]
 no-css = true
+# output = ["html"]
 
 
 [preprocessor.gettext]
@@ -42,7 +42,7 @@ mathjax-support = true
 no-section-label = true
 theme = "theme"
 additional-js  = ["theme/mermaid.min.js", "theme/mermaid-init.js"]
-additional-css = ["./mdbook-admonish.css", "theme/css/mdbook-admonish.css", "theme/css/open-in.css"]
+additional-css = ["./mdbook-admonish.css", "theme/css/mdbook-admonish.css", "theme/css/open-in.css","theme/css/katex.min.css",]
 git-repository-url = "https://github.com/zkp-co-learning/zkp-co-learning.github.io"
 open-on-text = "Found a bug?! [Edit this page on GitHub.]"
 edit-url-template = "https://github.com/zkp-co-learning/zkp-co-learning.github.io/edit/main/{path}"
